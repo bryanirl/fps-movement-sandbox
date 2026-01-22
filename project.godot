@@ -15,6 +15,10 @@ run/main_scene="uid://cqg8qbflth4x1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_xterm/plugin.cfg", "res://addons/physics_collision_import_generator/plugin.cfg")
+
 [input]
 
 move_forward={

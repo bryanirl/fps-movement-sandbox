@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqg8qbflth4x1"]
+[gd_scene load_steps=11 format=3 uid="uid://cqg8qbflth4x1"]
 
 [ext_resource type="Script" uid="uid://c0v8158omvtpo" path="res://scripts/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://b4bfataaa3r3t" path="res://assets/fleshytexture.jpg" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://sc8ggias24os" path="res://assets/ccs_wall_segment.glb" id="3_dqkch"]
 
 [sub_resource type="Environment" id="Environment_u8vuu"]
 
@@ -12,6 +14,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8vuu"]
 size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlg0r"]
+albedo_texture = ExtResource("2_qhqgy")
 
 [sub_resource type="BoxMesh" id="BoxMesh_3vyb7"]
 size = Vector3(50, 1, 50)
@@ -43,4 +48,14 @@ light_energy = 1.2
 shape = SubResource("BoxShape3D_u8vuu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018183231, 0)
+material_override = SubResource("StandardMaterial3D_qlg0r")
 mesh = SubResource("BoxMesh_3vyb7")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_u8vuu")
+
+[node name="ccs_wall_segment2" parent="." instance=ExtResource("3_dqkch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.325562, 0.5, -2.6567364)
